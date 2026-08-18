@@ -1,0 +1,7 @@
+numpy>=1.21
+torch>=2.0
+huggingface_hub>=0.23
+matplotlib>=3.5
+
+# The MILP baselines additionally need Gurobi and a valid licence:
+#   pip install 'gurobipy>=10.0'

@@ -1,0 +1,2 @@
+param,value,objective,rental,arrival,time_s,gap_%,n_truck,n_drone,n_rendv,n_items,profit,R,Wcap,vmin,vD,W_final,truck_node_ids,drone_node_ids,rendezvous_node_ids
+baseline,-,-34992.7126,69657.7126,958.1529,600.0361,,23,16,16,39,34665.0,72.7,91001.0,0.1,2.0,39183.0,"[4, 7, 8, 9, 10, 11, 12, 16, 17, 18, 20, 19, 26, 28, 27, 31, 30, 33, 34, 38, 37, 41, 2]","[40, 6, 5, 14, 15, 13, 21, 24, 25, 29, 23, 32, 36, 35, 39, 3]","[4, 22, 8, 12, 16, 20, 19, 26, 28, 27, 31, 33, 38, 37, 2, 1]"

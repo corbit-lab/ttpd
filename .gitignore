@@ -1,0 +1,102 @@
+# --- build output ---
+build/
+dist/
+*.egg-info/
+
+# --- editor / OS / python cruft ---
+.vscode/
+__pycache__/
+*.pyc
+*.pyo
+.DS_Store
+*.egg-info/
+.ipynb_checkpoints/
+
+# --- manuscript: keep the paper source out of the code repo ---
+*.tex
+*.bib
+*.aux
+*.pdf
+
+# --- secrets: never commit ---
+.env
+.env.*
+*.token
+.huggingface/
+
+# --- local virtualenvs (never commit) ---
+.venv/
+venv/
+.lisa_venv/
+.sail_venv/
+
+# =====================================================================
+# Heavy artifacts live on the Hugging Face Hub, not in git:
+#   artifacts/
+
+# ...except the benchmark instances and the result tables, which are small
+# enough to belong in the repo so a clone can reproduce and verify results
+# without any download.
+!artifacts/
+!artifacts/data/
+!artifacts/data/instances/
+!artifacts/data/instances/**
+!artifacts/data/results/
+!artifacts/data/results/**
+
+# Model weights and the behaviour-cloning training data stay on the Hub:
+# together they are ~520 MB and both are regenerable (weights by training,
+# BC data by ttpd/lisa/*/gen_dataset.py).
+artifacts/weights/
+artifacts/data/behaviour_cloning_datasets/weights/  -> $TTPD_WEIGHTS_REPO  (model repo)
+#   artifacts/
+
+# ...except the benchmark instances and the result tables, which are small
+# enough to belong in the repo so a clone can reproduce and verify results
+# without any download.
+!artifacts/
+!artifacts/data/
+!artifacts/data/instances/
+!artifacts/data/instances/**
+!artifacts/data/results/
+!artifacts/data/results/**
+
+# Model weights and the behaviour-cloning training data stay on the Hub:
+# together they are ~520 MB and both are regenerable (weights by training,
+# BC data by ttpd/lisa/*/gen_dataset.py).
+artifacts/weights/
+artifacts/data/behaviour_cloning_datasets/bench/    -> $TTPD_BENCH_REPO    (dataset repo)
+#
+# The directory mirrors the two Hub repos exactly. Publish with
+#   python3 tools/push_to_huggingface.py
+# and let `ttpd_hub.ensure_local()` fetch files on demand. Inspect the
+# mapping with `python3 ttpd_hub.py --plan`.
+# =====================================================================
+artifacts/
+
+# ...except the benchmark instances and the result tables, which are small
+# enough to belong in the repo so a clone can reproduce and verify results
+# without any download.
+!artifacts/
+!artifacts/data/
+!artifacts/data/instances/
+!artifacts/data/instances/**
+!artifacts/data/results/
+!artifacts/data/results/**
+
+# Model weights and the behaviour-cloning training data stay on the Hub:
+# together they are ~520 MB and both are regenerable (weights by training,
+# BC data by ttpd/lisa/*/gen_dataset.py).
+artifacts/weights/
+artifacts/data/behaviour_cloning_datasets/
+
+# --- run outputs ---
+runs/
+logs/
+*.log
+*.out
+*.nohup.out
+
+# --- reversible cleanup staging ---
+_holding/
+_trash/

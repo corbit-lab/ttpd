@@ -1,0 +1,7 @@
+model,size,decode,RL_objective,milp_ref_env,gap_pct
+GAT+PPO,15,sampling(64),-38236.54,-36385.6806,5.0868
+GAT+PPO,15,beam256+8aug,-37568.62,-36385.6806,3.2511
+GAT+PPO,15,beam512+8aug+128samp,-37568.62,-36385.6806,3.2511
+GAT+PPO,20,sampling(64),-42842.58,-40090.7533,6.8640
+GAT+PPO,20,sampling(512),-42604.59,-40090.7533,6.2703
+MLP+PPO,20,sampling(512),-42122.32,-40090.7533,5.0674

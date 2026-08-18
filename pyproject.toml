@@ -1,0 +1,36 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ttpd"
+version = "1.0.0"
+description = "Solvers and experiments for the Travelling Thief Problem with Drones (TTP-D)"
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+authors = [{ name = "Kabir Murjani", email = "kabirmurjani@gmail.com" }]
+keywords = ["travelling-thief-problem", "drones", "combinatorial-optimization",
+            "reinforcement-learning", "operations-research"]
+
+dependencies = [
+    "numpy>=1.21",
+    "torch>=2.0",
+    "huggingface_hub>=0.23",
+    "matplotlib>=3.5",
+]
+
+[project.optional-dependencies]
+# The MILP baselines need a Gurobi licence; everything else runs without one.
+exact = ["gurobipy>=10.0"]
+
+[tool.setuptools]
+# The solver stacks are deliberately forked copies that collide on module name
+# (three separate env/, policy/, train/ trees), so they are NOT importable
+# subpackages -- ttpd._paths puts the chosen one on sys.path at runtime. Listing
+# `ttpd` alone keeps setuptools from trying to treat those trees as packages.
+packages = ["ttpd", "ttpd._internal"]
+
+[tool.setuptools.package-data]
+ttpd = ["core/*.py", "heuristics/*.py", "exact/*.py",
+        "rl/**/*.py", "lisa/**/*.py"]
